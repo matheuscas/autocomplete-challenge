@@ -1,3 +1,6 @@
 sanic
 uvloop
 motor
+aiohttp
+pytest
+pytest-sanic
