@@ -14,7 +14,7 @@ app.register_blueprint(db.bp_db)
 async def index(request):
     return text('Desafio Dito')
 
-@app.post("/navigation/info")
+@app.post("/event")
 async def set_nav_info(request):
     try:
         payload = {'event': request.json['event'], 'timestamp': request.json['timestamp']}
