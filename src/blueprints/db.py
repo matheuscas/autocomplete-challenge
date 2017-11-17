@@ -9,6 +9,7 @@ async def register_db(app, loop):
     mongo_client = AsyncIOMotorClient('localhost', 27017)
     app.config.db = mongo_client['desafio_dito']
     app.config.mongo = mongo_client
+    app.config.db.events.create_index([('event', 'text')]);
 
 @bp_db.listener('after_server_stop')
 async def close_db(app, loop):
