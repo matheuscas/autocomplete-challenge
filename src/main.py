@@ -25,7 +25,7 @@ async def set_nav_info(request):
 
 @app.get("/events/search/<event>")
 async def search_events(request, event):
-    cursor = app.config.db.events.find({ '$text': { '$search': event } })
+    cursor = app.config.db.events.find({ 'event': {"$regex": event, '$options': 'i'} })
     results = []
     for document in await cursor.to_list(length=10):
         results.append({'event': document['event'], 'timestamp': document['timestamp']})
