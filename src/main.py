@@ -23,5 +23,13 @@ async def set_nav_info(request):
     except KeyError as error:
         raise ServerError(str(error), status_code=404)
 
+@app.get("/events/search/<event>")
+async def search_events(request, event):
+    cursor = app.config.db.events.find({ '$text': { '$search': event } })
+    results = []
+    for document in await cursor.to_list(length=10):
+        results.append({'event': document['event'], 'timestamp': document['timestamp']})
+    return json(results)
+
 if __name__ == '__main__':
     app.run(host="0.0.0.0", port=8000, debug=True)
