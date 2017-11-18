@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Desafio Dito - Autocomplete</title>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+  
+  <script>
+  $( function() {
+    $( "#event" ).autocomplete({
+      source: "/events/search",
+      delay: 500,
+      minLength: 2
+    });
+  } );
+  </script>
+</head>
+<body>
+ 
+<div class="ui-widget">
+  <h2>Desafio Dito</h2>
+  <input id="event">
+</div>
+ 
+</body>
+</html>

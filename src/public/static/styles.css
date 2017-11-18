@@ -1,0 +1,12 @@
+.ui-widget {
+    margin-top: 20%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 240px;
+    border-radius: 5px;
+    height: 30px;
+}
