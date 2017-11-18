@@ -1,6 +1,7 @@
 import asyncio
 import uvloop
 from sanic import Sanic
+from sanic import response
 from sanic.response import text, json
 from sanic.exceptions import ServerError
 from blueprints import db
@@ -9,10 +10,11 @@ asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
 app = Sanic(__name__)
 app.register_blueprint(db.bp_db)
+app.static('/styles.css', './public/static/styles.css');
 
 @app.route("/")
 async def index(request):
-    return text('Desafio Dito')
+    return await response.file('public/index.html')
 
 @app.post("/event")
 async def set_nav_info(request):
