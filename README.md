@@ -21,6 +21,9 @@ This was an intended choice due to performance in search and  ease of use.
 
 ## Build and Run 
 
-`$ docker-compose build && docker-compose up`
+```
+$ cd src
+$ docker-compose build && docker-compose up
+```
 
 ;)
