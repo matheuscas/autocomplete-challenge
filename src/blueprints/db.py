@@ -8,7 +8,7 @@ bp_db = Blueprint('db')
 
 @bp_db.listener('before_server_start')
 async def register_db(app, loop):
-    mongo_client = AsyncIOMotorClient('localhost', 27017)
+    mongo_client = AsyncIOMotorClient('mongodb', 27017)
     app.config.db = mongo_client['desafio_dito']
     app.config.mongo = mongo_client
     await populateEvents(app)
